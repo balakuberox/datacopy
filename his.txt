@@ -1,0 +1,856 @@
+    1  oc get pods
+    2  oc project network-policy 
+    3  oc get pods
+    4  oc get pods --show-labels 
+    5  oc describe project manoj
+    6  oc label namespace manoj ns=manoj
+    7  oc describe project manoj
+    8  ip a | grep 172.25.250.9
+    9  oc get svc
+   10  ip -br a
+   11  ip a | grep 192.168.122.1
+   12  sudo tcpdump -i eth0 -A -n port 80 | grep js
+   13  ls
+   14  cat tcpdump-command.txt 
+   15  oc get pods
+   16  clear
+   17  oc get pods
+   18  oc egt limitrange
+   19  oc get limitrange
+   20  clear
+   21  oc set resources  --request=cpu=200m,memory=100Mi --limits cpu=300m,memory=200Mi
+   22  oc get deployment
+   23  oc get pods
+   24  oc set resources deployment/todo-http  --request=cpu=200m,memory=100Mi --limits cpu=300m,memory=200Mi
+   25  oc set resources deployment/todo-http  --request cpu=200m,memory=100Mi --limits cpu=300m,memory=200Mi
+   26  oc set resources deployment/todo-http  --requests cpu=200m,memory=100Mi --limits cpu=300m,memory=200Mi
+   27  oc get pods
+   28  oc get pods -o wide
+   29  clear
+   30  oc describe deployment todo-http
+   31  oc top pods
+   32  oc adm top pods 
+   33  clear
+   34  oc get deployment
+   35  oc describe deployment todo-http 
+   36  oc describe pod todo-http-d7ccc79c5-2vtcv 
+   37  oc describe pod todo-http-d7ccc79c5-2vtcv clear
+   38  clea
+   39  rclear
+   40  clear
+   41  oc scale deployment todo-http  --replicas=4
+   42  oc get pods
+   43  oc describe pod todo-http-d7ccc79c5-8zcw5 
+   44  oc describe pod todo-http-d7ccc79c5-8zcw5  | grep -A2 limit
+   45  oc describe pod todo-http-d7ccc79c5-8zcw5  | grep -A2 resource
+   46  oc describe pod todo-http-d7ccc79c5-8zcw5  | grep -A2 Resource
+   47  oc describe pod todo-http-d7ccc79c5-8zcw5  | grep -A5 Resource
+   48  oc describe pod todo-http-d7ccc79c5-8zcw5 
+   49  oc describe pod todo-http-d7ccc79c5-8zcw5  | grep -A5 Limits
+   50  oc describe pod todo-http-d7ccc79c5-9cr6t  | grep -A5 Limits
+   51  clear
+   52  oc get deployment
+   53  oc get rs
+   54  oc scale deployment todo-http --replicas=1
+   55  oc get pods
+   56  clear
+   57  oc get quota
+   58  oc create quota new-quota --hard cpu=200m,memory=500Mi,secrets=15
+   59  oc login -u admin
+   60  oc create quota new-quota --hard cpu=200m,memory=500Mi,secrets=15
+   61  oc get quota
+   62  oc edit quota new-quota 
+   63  oc get quota
+   64  oc create secret generic sample-secret 
+   65  oc get quota
+   66  oc create secret generic sample-secret-copy
+   67  oc get pods
+   68  oc adm top pods
+   69  oc get deployment
+   70  oc scale deployment todo-http --replicas=5
+   71  oc get pods
+   72  oc get deployment
+   73  oc logs todo-http
+   74  oc describe deployment todo-http
+   75  oc get pods
+   76  oc get rs
+   77  oc describe rs todo-http-d7ccc79c5 
+   78  oc get quota
+   79  oc adm top pods
+   80  oc get pods
+   81  oc describe pod todo-http-d7ccc79c5-8zcw5 | grep -A2 limits
+   82  oc describe pod todo-http-d7ccc79c5-8zcw5 | grep -A2 limits -i
+   83  oc describe pod todo-http-d7ccc79c5-8zcw5 | grep -A5 limits -i
+   84  oc get quota
+   85  oc edit quota new-quota 
+   86  oc get pods
+   87  oc get quota
+   88  oc get rs
+   89  oc get deployment
+   90  oc scale deployment todo-http --replicas=3
+   91  oc get pods
+   92  oc get quota
+   93  oc scale deployment todo-http --replicas=2
+   94  oc get pods
+   95  oc scale deployment todo-http --replicas=6
+   96  oc get pods
+   97  oc get quota
+   98  oc scale deployment todo-http --replicas=6
+   99  oc get pods
+  100  oc get rs
+  101  oc describe rs todo-http-d7ccc79c5 
+  102  oc get rs
+  103  oc get deployment
+  104  oc get quota
+  105  oc edit quota
+  106  oc get quota
+  107  oc get rs
+  108  oc deployment
+  109  oc get deployement
+  110  oc get deployment
+  111  oc delete rs todo-http-d7ccc79c5 
+  112  oc get pods
+  113  oc get rs
+  114  oc get pods
+  115  oc get rs
+  116  oc delete rs todo-http-5b8874d978 
+  117  oc get pods
+  118  oc get rs
+  119  oc delete rs todo-http-d7ccc79c5 
+  120  oc get rs
+  121  oc get pods
+  122  oc get deployment 
+  123  oc get pods
+  124  oc get rs
+  125  cd ~
+  126  clear
+  127  lab network-policy start
+  128  oc login -u developer
+  129  oc whoami
+  130  oc new-project network-policy
+  131  oc project
+  132  oc new-app --name hello --docker-image quay.io/redhattraining/hello-world-nginx:v1.0
+  133  oc get all
+  134  oc get pods
+  135  oc new-app --name test --docker-image quay.io/redhattraining/hello-world-nginx:v1.0
+  136  oc get all
+  137  clear
+  138  oc get pods
+  139  oc get svc
+  140  oc expose svc hello 
+  141  oc get routes
+  142  ~/DO280/labs/network-policy/display-project-info.shoc 
+  143  oc rsh test-54f6b56774-w4txn curl 10.10.0.32:8080
+  144  oc rsh test-54f6b56774-w4txn curl 172.30.157.93:8080
+  145  oc rsh test-54f6b56774-w4txn curl hello-network-policy.apps.ocp4.example.com
+  146  oc get deployment
+  147  oc new-project network-test
+  148  oc project
+  149  oc new-app --name sample-app --docker-image quay.io/redhattraining/hello-world-nginx:v1.0
+  150  oc get all
+  151  oc get all 
+  152  oc get pods
+  153  oc rsh sample-app-5645b95bc8-jqh5n curl 10.10.0.32:8080
+  154  ~/DO280/labs/network-policy/display-project-info.sh
+  155  oc get pods
+  156  oc rsh sample-app-5645b95bc8-jqh5n 172.30.217.255:8080
+  157  oc rsh sample-app-5645b95bc8-jqh5n 10.10.0.32:8080
+  158  oc rsh sample-app-5645b95bc8-jqh5n curl 10.10.0.32:8080
+  159  clear
+  160  oc project network-policy
+  161  oc project
+  162  cd ~/DO280/labs/network-policy/
+  163  ls
+  164  cat deny-all.yaml 
+  165  oc create -f deny-all.yaml 
+  166  vi deny-all.yaml 
+  167  oc apply -f deny-all.yaml 
+  168  oc get networkpolicy
+  169  oc get pods
+  170  oc get pods -o wide
+  171  oc rsh test-54f6b56774-w4txn  curl 10.10.0.32:8080
+  172  oc get svc -o wide
+  173  oc rsh test-54f6b56774-w4txn  curl 172.30.157.93:8080
+  174  oc get networkpolicies.networking.k8s.io 
+  175  oc describe networkpolicies.networking.k8s.io deny-all ny-all
+  176  oc describe networkpolicies.networking.k8s.io deny-all
+  177  oc delete networkpolicies.networking.k8s.io  deny-all 
+  178  oc rpojetc
+  179  oc project
+  180  oc create -f deny-all.yaml 
+  181  clear
+  182  ./display-project-info.sh 
+  183  oc rsh test-54f6b56774-w4txn curl 10.10.0.32:8080
+  184  oc rsh test-54f6b56774-w4txn curl 172.30.217.255:8080
+  185  clear
+  186  vi allow-specific.yaml 
+  187  oc project network-policy 
+  188  oc create -f allow-specific.yaml 
+  189  ./display-project-info.sh 
+  190  clear
+  191  ./display-project-info.sh 
+  192  oc rsh test-54f6b56774-w4txn curl 10.10.032.8080
+  193  oc rsh test-54f6b56774-w4txn curl 10.10.0.32.8080
+  194  oc rsh test-54f6b56774-w4txn curl 10.10.0.32:8080
+  195  oc project network-test 
+  196  oc rsh sample-app-5645b95bc8-jqh5n curl 10.10.0.30:8080
+  197  oc rsh sample-app-5645b95bc8-jqh5n curl 10.10.0.32:8080
+  198  oc rsh sample-app-5645b95bc8-jqh5n curl 172.30.217.255:8080
+  199  vi allow-specific.yaml 
+  200  ./display-project-info.sh 
+  201  oc rsh sample-app-5645b95bc8-jqh5n curl hello-network-policy.apps.ocp4.example.com
+  202  clear
+  203  ./display-project-info.sh 
+  204  oc project network-policy 
+  205  oc rsh test-54f6b56774-w4txn curl 172.30.217.255:8080
+  206  ls
+  207  vi allow-specific.yaml 
+  208  oc project
+  209  oc create -f allow-specific.yaml 
+  210  clear
+  211  oc get networkpolicies.networking.k8s.io 
+  212  ./display-project-info.sh 
+  213  crul hello-network-policy.apps.ocp4.example.com
+  214  curl hello-network-policy.apps.ocp4.example.com
+  215  clea
+  216  clear
+  217  oc describe project default
+  218  oc login -uadmin
+  219  clear
+  220  oc describe project default
+  221  oc label namespaces default network.openshift.io/policy-group=ingress
+  222  oc describe project default
+  223  clear
+  224  ./display-project-info.sh 
+  225  clear
+  226  oc login -u developoer
+  227  oc login -u developer
+  228  clear
+  229  ./display-project-info.sh 
+  230  curl hello-network-policy.apps.ocp4.example.com
+  231  vi allow-specific.yaml 
+  232  oc delete networkpolicies.networking.k8s.io allow-specific-mode q
+  233  oc delete networkpolicies.networking.k8s.io allow-specific-mode 
+  234  clear
+  235  oc create -f allow-specific.yaml 
+  236  clear
+  237  ./display-project-info.sh 
+  238  curl hello-network-policy.apps.ocp4.example.com
+  239  oc project default
+  240  oc login -uadmin
+  241  oc project default
+  242  oc get pods
+  243  oc get svc
+  244  clear
+  245  ./display-project-info.sh 
+  246  oc project network-policy 
+  247  oc rsh test-54f6b56774-w4txn curl hello-network-policy.apps.ocp4.example.com
+  248  oc rsh test-54f6b56774-w4txn curl 172.30.217.255:8080
+  249  oc new-project manoj
+  250  oc new-app --name manoj-app --docker-image quay.io/redhattraining/hello-world-nginx:v1.0
+  251  oc get pods
+  252  oc rsh manoj-app-7dc98d5b86-tbxtf curl hello-network-policy.apps.ocp4.example.com
+  253  ls
+  254  oc project network-policy 
+  255  oc get pods
+  256  oc get pods -o wide
+  257  oc rsh hello-b8d559466-5fpbl curl 10.9.0.37:8080
+  258  oc project manoj
+  259  oc get pods
+  260  oc get pods --show-lables
+  261  oc get pods --show-lable
+  262  oc get pods --show-label
+  263  oc get pods --show-labels 
+  264  ls
+  265  vi allow-specific.yaml 
+  266  oc project
+  267  cat allow-specific.yaml 
+  268  oc get pods
+  269  oc project
+  270  pwd
+  271  oc create -f allow-specific.yaml
+  272  clear
+  273  ./display-project-info.sh 
+  274  oc project manoj
+  275  oc rsh manoj-app-7dc98d5b86-tbxtf curl 10.10.0.32:8080
+  276  clear
+  277  oc project network-policy 
+  278  oc get networkpolicies.networking.k8s.io 
+  279  oc describe networkpolicies.networking.k8s.io  allow-specific-mode-manoj 
+  280  cat allow-specific.yaml 
+  281  oc get pods
+  282  oc get pods --show-labels 
+  283  clear
+  284  oc describe projest manoj
+  285  oc describe project manoj
+  286  cat allow-specific.yaml 
+  287  oc project manoj
+  288  oc get pods
+  289  oc get pods --show-labels 
+  290  oc rsh manoj-app-7dc98d5b86-tbxtf curl 10.10.0.32:8080
+  291  oc rsh manoj-app-7dc98d5b86-tbxtf curl 10.10.0.3:8080
+  292  oc rsh manoj-app-7dc98d5b86-tbxtf curl 10.10.0.37:8080
+  293  clea
+  294  clear
+  295  ./display-project-info.sh 
+  296  oc rsh manoj-app-7dc98d5b86-tbxtf curl 10.9.0.37:8080
+  297  oc rsh manoj-app-7dc98d5b86-tbxtf curl 172.30.157.93:8080
+  298  clear
+  299  lab network-ingress start
+  300  clear
+  301  cd ~/DO280/labs/network-ingress/certs/
+  302  ls
+  303  cat passphrase.txt 
+  304  cat training-CA.key 
+  305  cat training-CA.pem 
+  306  clear
+  307  oc login -u developer -p developer https://api.ocp4.example.com:6443
+  308  oc login -u admin
+  309  oc login -u developer
+  310  clear
+  311  oc new-project network-ingress
+  312  cd ~/DO280/labs/network-ingress/
+  313  ls
+  314  cat todo-app-v1.yaml 
+  315  oc get deployment todo-http --show-lables
+  316  cat todo-app-v1.yaml 
+  317  oc create -f todo-app-v1.yaml 
+  318  oc status all
+  319  oc get all
+  320  oc status
+  321  oc get deployment
+  322  oc get deployment --show-lables
+  323  oc get deployment todo-http --show-lables
+  324  oc get deployment
+  325  oc describe deployment todo-app 
+  326  oc describe deployment todo-http
+  327  clear
+  328  oc get pods
+  329  oc get dc
+  330  clear
+  331  oc get pods
+  332  oc get deployment
+  333  oc get svc
+  334  oc get routes
+  335  oc expose svc todo-http --hostname todo-http.apps.ocp4.example.com
+  336  oc get routes
+  337  curl todo-http.apps.ocp4.example.com
+  338  curl -k todo-http.apps.ocp4.example.com
+  339  clear
+  340  oc get routes
+  341  lab network-policy finish
+  342  cd ~
+  343  lab network-policy finish
+  344  cd /home/student/
+  345  lab network-policy finish
+  346  cd DO280/'
+  347  '
+  348  cd DO280/labs/
+  349  ll
+  350  rm -rf *
+  351  ls
+  352  cd
+  353  lab network-policy finish
+  354  clear
+  355  lab network-review start
+  356  oc login -udeveloper
+  357  oc new-project network-review
+  358  ~/DO280/labs/network-review/
+  359  ls
+  360  cd ~/DO280/labs/network-review/
+  361  ls
+  362  cat php-http.yaml 
+  363  oc create -f php-http.yaml 
+  364  ls
+  365  cat php-http.yaml 
+  366  clear
+  367  lab network-review start
+  368  oc new-project network-review
+  369  lab network-review start
+  370  clear
+  371  cd
+  372   lab network-policy start
+  373  clear
+  374   lab network-review start
+  375  clear
+  376  oc project
+  377  oc login -u developer
+  378  oc project
+  379  cd ~/DO280/labs/network-review/
+  380  ls
+  381  cat php-http.yaml 
+  382  vi  php-http.yaml 
+  383  oc create -f php-http.yaml 
+  384  oc delete all -l app=php
+  385  oc delete all -l app=php-http
+  386  oc create -f php-http.yaml 
+  387  oc get pods
+  388  clear
+  389  oc egt pods
+  390  oc get pods
+  391  oc delete all -l app=php-http
+  392  vi php-http.yaml 
+  393  oc create -f php-http.yaml 
+  394  oc get pods
+  395  clear
+  396  oc get posds
+  397  oc get pods
+  398  oc get posds
+  399  oc get pods
+  400  clear
+  401  oc get svc
+  402  oc get routes
+  403  oc expose service php-http --name  php-http --hostname php-http.apps.ocp4.example.com
+  404  oc get routes
+  405  curl php-http.apps.ocp4.example.com
+  406  clear
+  407  ll
+  408  vi deny-all.yaml 
+  409  oc create -f deny-all.yaml 
+  410  oc get networkpolicy
+  411  clear
+  412  oc project defaul
+  413  oc login -u admin
+  414  oc project default
+  415  oc eget pods
+  416  oc get pods
+  417  clear
+  418  oc get pods
+  419  oc get pods -A | grep router
+  420  oc project openshift-ingress
+  421  oc get pods -o wide
+  422  oc get nodes --show-labels 
+  423  oc get nodes -L env
+  424  oc lable node master01 env=master01
+  425  oc label node master01 env=master01
+  426  oc get nodes -L env
+  427  oc label node master02 env=master02
+  428  clear
+  429  oc login -u developer
+  430  clear
+  431  oc get pods
+  432  oc edit deployment php-http
+  433  oc get deployment
+  434  oc projects
+  435  oc project network-review 
+  436  oc get pods
+  437  oc edit deployment php-http
+  438  oc get pods -o wide
+  439  oc edit deployment php-http
+  440  oc get pods -o wide
+  441  oc project ingress-controller
+  442  oc login -u adminA
+  443  oc project ingress-controller
+  444  oc get all -n openshift-ingress
+  445  oc get all -n openshift-ingress-operator
+  446  clear
+  447  oc project network-review 
+  448  ll
+  449  vi allow-from-openshift-ingress.yaml 
+  450  oc create -f allow-from-openshift-ingress.yaml 
+  451  cat allow-from-openshift-ingress.yaml 
+  452  vi allow-from-openshift-ingress.yaml 
+  453  oc create -f allow-from-openshift-ingress.yaml 
+  454  oc get routes
+  455  curl php-http.apps.ocp4.example.com
+  456  oc get pods
+  457  oc get pods -o wide
+  458  oc get networkpolicies.networking.k8s.io 
+  459  oc describe networkpolicies.networking.k8s.io allow-from-openshift-ingress 
+  460  oc describe project default 
+  461  oc label namespace default network.openshift.io/policy-group=ingress
+  462  curl php-http.apps.ocp4.example.com
+  463  for X in {1..4}; do curl -s http://php-http.apps.ocp4.example.com | grep "PHP"; done
+  464  for X in {1..10000}; do echo "manoj is a bad guy"; done;
+  465  for X in {1..4}; do curl -s http://php-http.apps.ocp4.example.com | grep "PHP"; done
+  466  for X in {1..10}; do curl -s http://php-http.apps.ocp4.example.com | grep "PHP"; done
+  467  clear
+  468  ls
+  469  cd certs/
+  470  ls
+  471  cat training.key 
+  472  cat openssl-commands.txt 
+  473  openssl req -new -key training.key -subj "/C=US/ST=North Carolina/L=Raleigh/O=Red Hat/CN=php-https.<WILDCARD DOMAIN>"-out <EXPORT CSR>
+  474  openssl req -new -key training.key -subj "/C=US/ST=North Carolina/L=Raleigh/O=Red Hat/CN=php-https.<WILDCARD DOMAIN>" -out <EXPORT CSR>
+  475  openssl req -new -key training.key \
+  476  openssl req -new -key training.key -subj "/C=US/ST=North Carolina/L=Raleigh/O=Red Hat/CN=php-https.apps.ocp4.example.com" -out training.csr
+  477  ls
+  478  openssl x509 -req -in training.csr -CA training-CA.pem -CAkey training-CA.key -CAcreateserial -passin file:passphrase.txt -out training.crt -days 3650 -sha256 -extfile training.ext
+  479  ls
+  480  ll
+  481  cd ~/DO280/labs/network-review
+  482  oc project
+  483  oc create secret tls php-certs --cert certs/training.crt --key certs/training.key
+  484  oc get secrets
+  485  ls
+  486  cat php-https.yaml 
+  487  ls
+  488  vi php-https.yaml 
+  489  oc create -f php-https.yaml 
+  490  oc get all
+  491  oc get pods
+  492  oc get svc
+  493  oc get routes
+  494  vi php-https.yaml 
+  495  oc replace -f php-https.yaml 
+  496  oc delete all -l app=php-https
+  497  oc replace -f php-https.yaml 
+  498  oc create -f php-https.yaml 
+  499  oc get all
+  500  oc ghet pods
+  501  oc get pods
+  502  oc create route passthrough php-https --service php-https --port 8443 --hostname php-https.apps.ocp4.example.com
+  503  oc get routes
+  504  curl -v php-https.apps.ocp4.example.com
+  505  curl -v https://php-https.apps.ocp4.example.com
+  506  ls
+  507  cd certs/
+  508  ls
+  509  curl -v --cacert training-CA.pem https://php-https.apps.ocp4.example.com
+  510  clear
+  511  oc get routes
+  512  ls
+  513  curl -v --cacert training-CA.pem https://php-https.apps.ocp4.example.com
+  514  oc get routes
+  515  ls
+  516  curl -v --cacert training-CA.pem https://php-https.apps.ocp4.example.com
+  517  clear
+  518  cd
+  519  lab network-review grade
+  520  lab network-review finish
+  521    
+  522  clear
+  523  clear
+  524  oc get pods
+  525  oc get pods --show-labels 
+  526  clera
+  527  clear
+  528  oc describe project network-test
+  529  oc label namespace network-test hello=test
+  530  oc login -u admin
+  531  oc label namespace network-test hello=test
+  532  oc login -u developer
+  533  clear
+  534  oc describe project network-test 
+  535  oc project network-test 
+  536  clear
+  537  oc get pods --show-labels 
+  538  ls
+  539  cat  ~/DO280/labs/install-storage/commands.txt
+  540  clear
+  541  oc whoami
+  542  oc login -u kubeadmin -p MMTUc-TnXjo-NFyh3-aeWmC
+  543  oc login -u kubeadmin -p MMTUc-TnXjo-NFyh3-aeWmC https://api.ocp4.example.com:6443
+  544  ls
+  545  cd DO280/
+  546  ls
+  547  cd labs/
+  548  ls
+  549  cd 
+  550  ;s
+  551  ls
+  552  cd DO280/
+  553  ls
+  554  cd solutions/
+  555  ls
+  556  cd
+  557  cd /var/local/
+  558  ls
+  559  cd ~
+  560  clear
+  561  lab install-troubleshoot start
+  562  clear
+  563  oc whoami
+  564  clear
+  565  source /usr/local/etc/ocp4.config
+  566  cat /usr/local/etc/ocp4.config
+  567  oc login -u kubeadmin -p waoWn-5S9VM-6cSsy-kMAyk
+  568  oc get clusterversion
+  569  oc describe clusterversion
+  570  clear
+  571  oc get co
+  572  clear
+  573  oc get nodes
+  574  oc adm node-logs -u crio master01
+  575  oc get nodes
+  576  oc logs master01
+  577  oc adm logs master01
+  578  oc adm node-logs master01
+  579  oc debug node/master01
+  580  clear
+  581  oc get nodes
+  582  oc get pods
+  583  oc get pods _A
+  584  oc get pods -A
+  585  oc get pod --loglevel 6
+  586  oc get pod --loglevel 10
+  587  oc whoami -t
+  588  oc get useroauthaccesstokens
+  589  for X in {1..10}; do curl -s http://php-http.apps.ocp4.example.com | grep "PHP"; done
+  590  oc login -u adminA
+  591  oc login -u admin
+  592  oc whoami
+  593  clear
+  594  oc get users
+  595  oc get user
+  596  clear
+  597  oc login -u kubeadmin -p ${RHT_OCP4_KUBEADM_PASSWD} https://api.ocp4.example.com:6443
+  598  oc whoami
+  599  oc get nodes
+  600  oc adm top nodes
+  601  oc get pods
+  602  oc get pods -A
+  603  oc get pods -o wide
+  604  oc get pods -A | grep -o wide
+  605  oc get pods -A -o wide
+  606  clear
+  607  oc get pods -A -o wide
+  608  clear
+  609  oc get nodes
+  610  oc describe node master01
+  611   oc get pod -n openshift-image-registry
+  612  oc logs --tail 3 -n openshift-image-registry cluster-image-registry-operator-64687b967c-ttfpg
+  613  clear
+  614  oc get pods
+  615  oc get pods -n openshift-image-registry
+  616  oc logs --tail 3 cluster-image-registry-operator-64687b967c-ttfpg -n openshift-image-registry
+  617  oc logs --tail 5 cluster-image-registry-operator-64687b967c-ttfpg -n openshift-image-registry
+  618  oc logs --tail 1 -n openshift-image-registry image-registry-7cfdfb844b-986d2
+  619   oc adm node-logs --tail 1 -u kubelet master01
+  620   oc adm node-logs --tail 1 -u crio master01
+  621  oc debug node/master01
+  622  oc project install-troubleshoot
+  623  oc get project
+  624  oc get pod
+  625  oc describe pod psql-578f78ccb-m85zh
+  626  oc status
+  627  oc get events
+  628  podman login registry.redhat.io
+  629  skopeo inspect docker://registry.redhat.io/rhel8/postgresq-13:1
+  630  skopeo inspect docker://registry.redhat.io/rhel8/postgresql-13:1
+  631  oc get deployment
+  632  oc edit deployment/psql
+  633  oc get pods
+  634  oc logs -f psql-5b6c5c77f6-96v6s
+  635  clear
+  636  oc get pods
+  637  oc get rs
+  638  oc get rc
+  639  oc get dc
+  640  oc get deployment
+  641  oc describe rs psql-5b6c5c77f6 
+  642  lab install-troubleshoot finish
+  643   lab install-storage start
+  644  source /usr/local/etc/ocp4.config
+  645  oc login -u kubeadmin -p ${RHT_OCP4_KUBEADM_PASSWD}
+  646  oc new-project install-storage
+  647  oc get storageclass
+  648  oc new-app --name postgresql-persistent --docker-image registry.redhat.io/rhel8/postgresql-13:1-7 -e POSTGRESQL_USER=redhat -e POSTGRESQL_PASSWORD=redhat123 -e POSTGRESQL_DATABASE=persistentdb
+  649  oc status
+  650  oc get deployment
+  651  oc set volumes deployment postgresql-persistent --add --name postgresql-storage --type pvc --claim-class nfs-storage --claim-mode rwo --claim-size 10Gi --mount-path /var/lib/pgsql --claim-name postgresql-storage
+  652  oc get pvc
+  653  oc get pv
+  654  oc get pv -o custom-columns=NAME:.metadata.name,CLAIM:.spec.claimRef.name 
+  655  cd ~/DO280/labs/install-storage
+  656  ls
+  657  ./init_data.sh
+  658  ./check_data.sh
+  659  oc get deployment
+  660  oc delete all -l app=postgresql-persistent
+  661  oc new-app --name postgresql-persistent2 --docker-image registry.redhat.io/rhel8/postgresql-13:1-7 -e POSTGRESQL_USER=redhat -e POSTGRESQL_PASSWORD=redhat123
+  662  oc delete all -l app=postgresql-persistent2 
+  663  oc new-app --name postgresql-persistent2 --docker-image registry.redhat.io/rhel8/postgresql-13:1-7 -e POSTGRESQL_USER=redhat -e POSTGRESQL_PASSWORD=redhat123 -e POSTGRESQL_DATABASE=persistentdb
+  664  ls
+  665  ./init_data.sh 
+  666  oc set volumes deployment/postgresql-persistent2 --add --name postgresql-storage --type pvc --claim-name postgresql-storage --mount-path /var/lib/pgsql
+  667  oc get pods
+  668  oc get pvc
+  669  oc get pv
+  670  ls
+  671  ./init_data.sh 
+  672  ./check_data.sh 
+  673  oc new-app --name manoj-sample --docker-image registry.redhat.io/rhel8/postgresql-13:1-7 -e POSTGRESQL_USER=redhat -e POSTGRESQL_PASSWORD=redhat123 -e POSTGRESQL_DATABASE=persistentdb
+  674  oc get pods
+  675  oc get deployment
+  676  oc set volumes deployment/manoj-sample --add --name manoj-sample-storage --type pvc --claim-class nfs-storage --claim-mode rwx --claim-size 1Gi --mount-path /var/lib/pgsql --claim-name postgresql-storage
+  677  oc set volumes deployment/manoj-sample --add --name manoj-sample-storage --type pvc --claim-class nfs-storage --claim-mode rwm --claim-size 1Gi --mount-path /var/lib/pgsql --claim-name postgresql-storage
+  678  oc set volumes deployment/manoj-sample --add --name manoj-sample-storage --type pvc --claim-class nfs-storage --claim-mode rwm --claim-size 1Gi --mount-path /var/lib/pgsql --claim-name manoj-sample-storage
+  679  oc set volumes deployment/manoj-sample --add --name manoj-sample-storage --type pvc --claim-class nfs-storage --claim-mode rwm --claim-size 1Gi --mount-path /var/lib/pgsql --claim-name manoj-sample-storage --overwrite
+  680  oc get pv
+  681  oc get pvc
+  682  oc delete pvc manoj-sample-storage 
+  683  oc get pv
+  684  oc delete pv pvc-2da9ddad-d0fe-4c35-9f9d-8f32708d5b82 
+  685  oc get pv
+  686  oc get pvc
+  687  clear
+  688  oc set volumes deployment/manoj-sample --add --name manoj-sample-storage --type pvc --claim-class nfs-storage --claim-mode rwm --claim-size 1Gi --mount-path /var/lib/pgsql --claim-name manoj-sample-storage
+  689  oc set volumes deployment/manoj-sample --add --name manoj-sample-storage --type pvc --claim-class nfs-storage --claim-mode rwm --claim-size 1Gi --mount-path /var/lib/pgsql --claim-name manoj-sample-storage1
+  690  oc get pv,pvc
+  691  oc delete pvc manoj-sample-storage
+  692  oc delete pvc manoj-sample-storage1
+  693  clear
+  694  oc get pv,pvc
+  695  clear
+  696  oc set volumes deployment/manoj-sample --add --name manoj-sample-storage22 --type pvc --claim-class nfs-storage --claim-mode rwm --claim-size 1Gi --mount-path /var/lib/pgsql --claim-name manoj-sample-storage22
+  697  oc get pc
+  698  oc get pv
+  699  oc delete pv pvc-0f78118a-34a8-4ed6-a95e-18959034aba0 
+  700  oc get pv
+  701  oc get pvc
+  702  oc get deployment
+  703  oc get pvc
+  704  oc get pv
+  705  clear
+  706  oc delete all -l app=postgresql-persistent2
+  707  oc deployment
+  708  oc get deployment
+  709  oc delete all -l app=manoj-sample
+  710  oc get all
+  711  oc get pv
+  712  oc get pvc
+  713  oc delete pv pvc-085782c7-191b-4d41-87cc-26e94dc15f84
+  714  oc get pv
+  715  oc get pvc
+  716  oc delete pvc/postgresql-storage
+  717  oc delete pvc/manoj-sample-storage22
+  718  cd
+  719  lab install-storage finish
+  720  oc get oAuth
+  721  oc get oAuth cluster -o yaml
+  722  oc edit oAuth cluster -o yaml
+  723  clear
+  724  oc get secrets -n openshift-config
+  725  htpasswd -c -B -b htpasswd bala 1network-policy123
+  726  ls
+  727  cat htpasswd 
+  728  htpasswd -c -B -b htpasswd manoj Ma*%!
+  729  ls
+  730  cat htpasswd 
+  731  htpasswd -B -b htpasswd bala 1network-policy123
+  732  ls
+  733  oc project
+  734  cat htpasswd
+  735  rm -rf htpasswd 
+  736  ls
+  737  htpasswd -c -B -b htpasswd bala '1!2$123'
+  738  ls
+  739  cat htpasswd 
+  740  htpasswd -c -B -b htpasswd manoj 'Ma*%!'
+  741  htpasswd -B -b htpasswd bala '1!2$123'
+  742  ls
+  743  cat htpasswd 
+  744  ls
+  745  rm -rf htpasswd 
+  746  ls
+  747  htpasswd -c -b htpasswd bala '1!2$123'
+  748  htpasswd -b htpasswd manoj 'Ma*%!'
+  749  ls
+  750  cat htpasswd 
+  751  htpasswd -b htpasswd vikram 'V&#@!m'
+  752  htpasswd -b htpasswd vamsi  'V%#@&'
+  753  cat htpasswd 
+  754  pwd
+  755  ls
+  756  oc create secret generic htpasswd-idp-secret  --from-file=htpasswd=htpasswd  -n openshift-config 
+  757  oc get secrets -n openshift-config
+  758  oc get oAuth cluster -o yaml
+  759  oc edit oAuth cluster -o yaml
+  760  oc get pods -n openshift-config
+  761  oc get pods -n openshift-authentication
+  762  oc login -u bala -p 1network-policy123
+  763  oc login -u bala -p '1!2$123'
+  764* 
+  765  oc login -u kubeadmin -p ${RHT_OCP4_KUBEADM_PASSWD}
+  766  source /usr/local/etc/ocp4.config
+  767  oc login -u kubeadmin -p ${RHT_OCP4_KUBEADM_PASSWD}
+  768  oc get rolebinding
+  769  oc get selfprovisoner
+  770  oc get selfprovisioner
+  771  oc get clusterrolebinding
+  772  oc get clusterrolebinding | grep self
+  773  oc get clusterrolebinding | grep self-provisioners
+  774  oc describe clusterrolebinding self-provisioners 
+  775  oc adm policy remove-cluster-role-from-group self-provisioner system:authenticated:oauth
+  776  oc describe clusterrolebinding self-provisioners 
+  777  oc login -u bala
+  778  oc login -u kubeadmin -p ${RHT_OCP4_KUBEADM_PASSWD}
+  779  oc new-project python-app
+  780  oc adm policy add-cluster-role-to-user cluster-admin bala
+  781  oc describe clusterrolebinding
+  782  oc adm policy add-role-to-user admin vamsi -n python-app
+  783  oc describe project python-app 
+  784  oc get rolebinding -n python-app
+  785  oc get rolebinding -n python-app -o wide
+  786  oc adm groups new developer 
+  787  oc adm groups add-users --help
+  788  oc adm groups add-users developer manoj
+  789  oc get groups
+  790  oc get clusterrole | grep self-provisioner
+  791  oc edit clusterrole self-provisioner
+  792  oc adm groups new editing-team
+  793  oc adm groups add-users editing-team vikram
+  794  oc adm policy  -n python-app add-role-to-group edit editing-team
+  795  oc get groups
+  796  oc get clusterrole -n python-app 
+  797  oc get clusterroles -n python-app 
+  798  oc get role -n python-app 
+  799  oc projectss
+  800  oc projects
+  801  clear
+  802  oc get role
+  803  oc get clusterrole
+  804  oc get clusterrole -o wide
+  805  clear
+  806  oc whoami
+  807  oc get rolebinding
+  808  oc get rolebinding -o wide
+  809  oc get groups
+  810  oc get users
+  811  oc login -u vikram -p 'V&#@!m'
+  812  oc new-app --name python --docker-image=quay.io/balagokulkuberox/model-app:logv1 --dry-run client -o yaml 
+  813  oc new-app --name python --image=quay.io/balagokulkuberox/model-app:logv1 --dry-run client -o yaml 
+  814  oc new-app --name python --image=quay.io/balagokulkuberox/model-app:logv1 --dry-run=client -o yaml 
+  815  clear
+  816  oc new-app --name python --image=quay.io/balagokulkuberox/model-app:logv1 --dry-run=client -o yaml 
+  817  oc new-app --name python --image=quay.io/balagokulkuberox/model-app:logv1 --dry-run=client -o yaml --help
+  818  oc new-app --name python --image=quay.io/balagokulkuberox/model-app:logv1 --dry-run=client --help
+  819  oc new-app --help
+  820  oc new-app --dry-run --help
+  821  ls
+  822  oc create deployment python --image quay.io/balagokulkuberox/model-app:logv1  --dry-run=client -o yaml
+  823  oc create deployment python --image quay.io/balagokulkuberox/model-app:logv1  --dry-run=client -o yaml > python.yaml
+  824  ls
+  825  vi python.yaml 
+  826  oc create -f python.yaml 
+  827  vi python.yaml 
+  828  oc create -f python.yaml 
+  829  oc get deployment
+  830  oc get pods
+  831  oc logs python-6dbc5b8c4c-wsxtg 
+  832  ls
+  833  cat python.yaml 
+  834  oc get pods
+  835  oc get svc
+  836  oc get deployment
+  837  oc get pods
+  838  oc logs python-6dbc5b8c4c-wsxtg 
+  839  oc whoami
+  840  oc create sa python-sa 
+  841  oc get sa
+  842  oc get scc
+  843  oc login -u bala
+  844  oc get scc
+  845  lsd
+  846  ls
+  847  oc get pods
+  848  oc get pods python-6dbc5b8c4c-wsxtg -o yaml | oc adm policy scc-subject-review 
+  849  oc get pods python-6dbc5b8c4c-wsxtg -o yaml | oc adm policy scc-subject-review -f -
+  850  oc adm policy add-scc-to-user anyuid -z python-sa
+  851  oc get pods
+  852  oc get deployment
+  853  oc set serviceaccount deployment/python python-sa
+  854  oc get pods
+  855  history
+  856  history > his.txt
